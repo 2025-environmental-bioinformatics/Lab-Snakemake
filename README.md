@@ -1,4 +1,6 @@
 # Snakemake and automation
+@(Teaching)
+
 Business as usual... 
 Before class, please make a conda environment: 
 ```
@@ -7,6 +9,7 @@ conda create -n snakemake-class -c bioconda snakemake fastqc multiqc trimmomatic
 and clone the GitHub repo:
 
 ```
+git clone git@github.com:2019-MIT-Environmental-Bioinformatics/Lab-Snakemake.git
 
 ```
 
@@ -243,9 +246,5 @@ It is often important to see what snakemake is doing behind the scenes. Some use
 
 1. Write a new rule that calculates `sign.dat` from `sign.txt`.
 2. Write a new rule called `results` that takes all the `.dat` files as input and runs `python compare_books.py *dat > results.txt`. 
+3. Update clean so that it removes the targets we just made (`results.txt` and `sign.dat`)
     
-## Wildcards
-We did it! We have a function that will run our basic analyses for us. However, if we take a look at our `Snakefile` there is a ton of repetition. Just as with python coding-- it is better to try to figure out ways to write general rules (functions) rather than write a unique one for each file we want to write. 
-
-Let's start by fixing up our `rule results` 
-
