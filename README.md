@@ -3,8 +3,7 @@
 
 ## Exercise to motivate class
 
-Business as usual... 
-Before class, please make a conda environment: 
+In the beginning of class, we will make a conda environment: 
 ```
 mamba create -n snakemake-class -c bioconda snakemake=7.32.4 fastqc multiqc trimmomatic plotnine matplotlib
 ```
