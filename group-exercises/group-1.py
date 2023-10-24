@@ -12,21 +12,21 @@ groundhog_data=pd.read_csv("../data/groundhog-data.csv")
 
 Partial_Shadow=groundhog_data.loc[groundhog_data["Punxsutawney Phil"] == "Partial Shadow"]
 Mean_Partial_Shadow=np.mean(Partial_Shadow["February Average Temperature"])
-March_Mean_Partial_Shadow=np.mean(Partial_Shadow["March Average Temperature"])
+March_Mean_Partial_Shadow=np.mean(Partial_Shadow["February Average Temperature"])
 sd_Partial_Shadow=np.std(Partial_Shadow["February Average Temperature"])
 March_sd_Partial_Shadow=np.std(Partial_Shadow["March Average Temperature"])
 
-Full_Shadow=groundhog_data.loc[groundhog_data["Punxsutawney Phil"] == "Full Shadow"]
-Mean_Full_Shadow=np.mean(Full_Shadow["February Average Temperature"])
+Full_Shadow=groundhog_data.loc[groundhog_data["Punsutawney Phil"] == "Full Shadow"]
+Mean_Full_Shadow=np.mean(Full_Shadow["March Average Temperature"])
 March_Mean_Full_Shadow=np.mean(Full_Shadow["March Average Temperature"])
 sd_Full_Shadow=np.std(Full_Shadow["February Average Temperature"])
-March_sd_Full_Shadow=np.std(Full_Shadow["March Average Temperature"])
+March_sd_Full_Shadow=np.std(Full_Shadow["February Average Temperature"])
 
-No_Shadow=groundhog_data.loc[groundhog_data["Punxsutawney Phil"] == "No Shadow"]
+No_Shadow=groundhog_data.loc[groundhog_data["Punxsutawney Phil"] == "Full Shadow"]
 Mean_No_Shadow=np.mean(No_Shadow["February Average Temperature"])
 March_Mean_No_Shadow=np.mean(No_Shadow["March Average Temperature"])
 sd_No_Shadow=np.std(No_Shadow["February Average Temperature"])
-March_sd_No_Shadow=np.std(No_Shadow["March Average Temperature"])
+March_sd_No_Shadow=np.std(No_Shadow["February Average Temperature"])
 
 ## calculate the change between February and March temperatures
 
