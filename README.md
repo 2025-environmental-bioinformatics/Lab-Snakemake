@@ -1,17 +1,41 @@
 # Snakemake and automation
 @(Teaching)
 
-Business as usual... 
-Before class, please make a conda environment: 
+## Exercise to motivate class
+
+In the beginning of class, we will make a conda environment: 
 ```
-conda create -n snakemake-class -c bioconda snakemake fastqc multiqc trimmomatic
+mamba create -n snakemake-class -c bioconda snakemake=7.32.4 fastqc multiqc trimmomatic plotnine matplotlib
 ```
+
 and clone the GitHub repo:
 
 ```
 git clone git@github.com:2019-MIT-Environmental-Bioinformatics/Lab-Snakemake.git
 
 ```
+
+![Groundhog Day](./images/groundhog.gif)
+
+We will assemble into groups where each group examines a separate coding approach, stored in `group-exercises`. These data are from [kaggle](https://www.kaggle.com/datasets/groundhogclub/groundhog-day/), and they display the decision of the Groundhog to either celebrate the beginning of Spring or declare 6 more weeks of winter. 
+
+Aggregate and regional mean temperature data for the months of February and March are also included, which serve to determine whether the Groundhog was right in its 2 February prediction for the next 6 weeks. 
+
+### What is the objective of this code?
+
+We want to calculate the mean of air temperatures in the event that the groundhog sees their Full Shadow vs Partial Shadow vs No Shadow. We also want to calculate the change in temperature - does the Groundhog correctly predict how fast temperatures will change, if not by how much?
+
+### What are we trying to do in teams?
+
+You have fifteen minutes to do this - this is a hard cutoff! Use the time wisely and try to get to executing the scripts right away.
+
+1. Navigate to `group-exercises` and find the `group-n.py` file that corresponds to the `n` that your group was assigned.
+2. Read through the Python code used for this calculation and see if you can spot any errors right away.
+3. Check for syntax errors by executing `python group-n.py`; address these first
+4. After you get the code working properly, navigate to `inclass-solutions/group-exercises` and execute `python group-n.py` with your group number.
+5. Compare `inclass-solutions/results` to `results` by checking the printed output block when you execute each script (hint: use a `tmux` session rather than trying to scroll).
+6. When you're satisfied, `scp` the images from `results` to your local computer - as long as your code matched the solutions, this is the real answer for whether empirical data supports the validity of the Groundhog Method. (Hint: use `scp <username>@poseidon-l1.whoi.edu:/vortexfs1/omics/env-bio/users/<username>/Lab-Python/results <local location desired>`; this is executed from your _local computer_).
+7. Brainstorm ways that you might improve this code. Jot down some notes as a group if you get this far! 
 
 ## What are makefiles
 
@@ -30,8 +54,9 @@ Starting from a source distribution, hmmer-3.3.tar.gz:
 ```
 More generally, makefiles and make can be used to specify a set of instructions for the creation of a file or set of files. For example, I made a [simple makefile](https://github.com/halexand/MIT_Latex/blob/master/Makefile) that streamlined the compilation of my Thesis in Latex. 
 
-## What is snakemake? 
-Snakemake is a Python-based workflow management tool that is based on GNU Make. Snakemake requires a build file which for Snakemake is called`Snakefile`. 
+## What is Snakemake? 
+
+Snakemake is a Python-based workflow management tool that is based on GNU Make. Snakemake requires a build file which for Snakemake is called `Snakefile`. 
 
 Snakemake is distinct from other text-based workflow systems in that it seamlessly allows you to hook into the Python interpreter. This means that you can define rules as an extension of Python ... if you can code in Python you can easily learn Snakemake. This allows you to combine the flexibility of a plain scripting language with a Pythonic workflow definition. 
 
@@ -59,6 +84,7 @@ In your copy of `Lab-Snakemake` make a directory called `novels`. Navigate into 
 ```
 curl -L https://www.gutenberg.org/cache/epub/2500/pg2500.txt -o siddartha.txt
 ```
+
 Now, let's make a simple snakemake file! Navigate into your copy of `Lab-Snakemake` and create a new empty file called `Snakefile`. Copy and paste this rule into the snakefile. 
 
 ```
@@ -70,6 +96,7 @@ rule count_words:
         python wordcount.py novels/siddartha.txt siddartha.dat
         '''
 ```
+
 Now, we can execute it just by typing `snakemake`. Snakemake (like make) looks automatically for a file locally called `Snakefile`. Note, while many / all snakefiles are called `Snakefile` they don't have to. You can call it whatever you want and use the flag `-s` to specify the name of your alternative snakefile. 
 
 By default, Snakemake should print a lot of text to let you know what it is doing:
