@@ -16,7 +16,11 @@ git clone git@github.com:2019-MIT-Environmental-Bioinformatics/Lab-Snakemake.git
 
 ```
 
-We will assemble into groups where each group examines a separate coding approach, stored in `group-exercises`. These data are from [kaggle](https://www.kaggle.com/datasets/groundhogclub/groundhog-day/), and they display the decision of the Groundhog to either celebrate the beginning of Spring or declare 6 more weeks of winter. Aggregate as well as regional mean temperature data for the months of February and March are also included, to determine whether the Groundhog was right in its 2 February prediction for the next 6 weeks. 
+![Groundhog Day](https://media.giphy.com/media/3o7WIQ4FARJdpmUni8/giphy-downsized-large.gif)
+
+We will assemble into groups where each group examines a separate coding approach, stored in `group-exercises`. These data are from [kaggle](https://www.kaggle.com/datasets/groundhogclub/groundhog-day/), and they display the decision of the Groundhog to either celebrate the beginning of Spring or declare 6 more weeks of winter. 
+
+Aggregate and regional mean temperature data for the months of February and March are also included, which serve to determine whether the Groundhog was right in its 2 February prediction for the next 6 weeks. 
 
 ### What is our objective for calculation? 
 
@@ -24,7 +28,14 @@ We want to calculate the mean of air temperatures in the event that the groundho
 
 ### What is our objective as teams?
 
-Read through the Python code used for this calculation and see if you can spot any errors. Brainstorm ways that you might improve it. 
+You have ten minutes to do this - this is a hard cutoff! Use the time wisely and try to get to executing the scripts right away.
+
+1. Navigate to `group-exercises` and find the `group-n.py` file that corresponds to the `n` that your group was assigned.
+2. Read through the Python code used for this calculation and see if you can spot any errors right away.
+3. Check for syntax errors by executing `python group-n.py`; address these first
+4. After you get the code working properly, navigate to `inclass-solutions/group-exercises` and execute `python group-n.py` with your group number.
+5. Compare `inclass-solutions/results` to `results` by running `scp 
+2. Brainstorm ways that you might improve it. 
 
 
 ## What are makefiles

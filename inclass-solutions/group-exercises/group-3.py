@@ -60,6 +60,19 @@ Difference_No_Shadow=No_Shadow["March Average Temperature"]-No_Shadow["February 
 
 ## DO NOT READ THIS CODE - SAVE & PLOT RESULTS ##
 
+print("")
+print("################OUTPUT SUMMARY#################")
+print("")
+print("When the Groundhog saw its shadow, mean air temperatures were\n",
+      Mean_Full_Shadow,"+/-",sd_Full_Shadow,
+      "in February and\n",March_Mean_Full_Shadow,"+/-",March_sd_Full_Shadow,"in March.")
+print("")
+print("When the Groundhog did not see its shadow, mean air temperatures were\n",Mean_No_Shadow,"+/-",sd_No_Shadow,
+      "in February and\n",March_Mean_No_Shadow,"+/-",March_sd_No_Shadow,"in March.")
+print("")
+print("###############################################")
+print("")
+
 if not os.path.exists("../results"):
     os.mkdir("../results")
 
