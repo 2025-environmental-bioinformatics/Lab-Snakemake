@@ -5,14 +5,13 @@
 
 In the beginning of class, we will make a conda environment: 
 ```
-mamba create -n snakemake-class -c bioconda snakemake=7.32.4 fastqc multiqc trimmomatic plotnine matplotlib
+mamba create -y -n snakemake-class -c bioconda -c conda-forge -c anaconda snakemake-minimal=7.32.4 fastqc multiqc trimmomatic plotnine matplotlib
 ```
 
 and clone the GitHub repo:
 
 ```
-git clone git@github.com:2019-MIT-Environmental-Bioinformatics/Lab-Snakemake.git
-
+git clone git@github.com:2023-environmental-bioinformatics/Lab-Snakemake.git
 ```
 
 ![Groundhog Day](./images/groundhog.gif)
