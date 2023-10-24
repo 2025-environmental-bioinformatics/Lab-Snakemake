@@ -16,7 +16,7 @@ git clone git@github.com:2019-MIT-Environmental-Bioinformatics/Lab-Snakemake.git
 
 ```
 
-![Groundhog Day](https://media.giphy.com/media/3o7WIQ4FARJdpmUni8/giphy-downsized-large.gif)
+![Groundhog Day](./images/groundhog.gif)
 
 We will assemble into groups where each group examines a separate coding approach, stored in `group-exercises`. These data are from [kaggle](https://www.kaggle.com/datasets/groundhogclub/groundhog-day/), and they display the decision of the Groundhog to either celebrate the beginning of Spring or declare 6 more weeks of winter. 
 
