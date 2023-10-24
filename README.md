@@ -27,14 +27,14 @@ We want to calculate the mean of air temperatures in the event that the groundho
 
 ### What are we trying to do in teams?
 
-You have ten minutes to do this - this is a hard cutoff! Use the time wisely and try to get to executing the scripts right away.
+You have fifteen minutes to do this - this is a hard cutoff! Use the time wisely and try to get to executing the scripts right away.
 
 1. Navigate to `group-exercises` and find the `group-n.py` file that corresponds to the `n` that your group was assigned.
 2. Read through the Python code used for this calculation and see if you can spot any errors right away.
 3. Check for syntax errors by executing `python group-n.py`; address these first
 4. After you get the code working properly, navigate to `inclass-solutions/group-exercises` and execute `python group-n.py` with your group number.
 5. Compare `inclass-solutions/results` to `results` by checking the printed output block when you execute each script (hint: use a `tmux` session rather than trying to scroll).
-6. When you're satisfied, `scp` the images from `results` to your local computer - as long as your code matched the solutions, this is the real answer for whether empirical data supports the validity of the Groundhog Method. (Hint: use `scp <username>@poseidon-l1.whoi.edu:/vortexfs1/omics/env-bio/users/<username>/Lab-Python/results <local location desired>`).
+6. When you're satisfied, `scp` the images from `results` to your local computer - as long as your code matched the solutions, this is the real answer for whether empirical data supports the validity of the Groundhog Method. (Hint: use `scp <username>@poseidon-l1.whoi.edu:/vortexfs1/omics/env-bio/users/<username>/Lab-Python/results <local location desired>`; this is executed from your _local computer_).
 7. Brainstorm ways that you might improve this code. Jot down some notes as a group if you get this far! 
 
 ## What are makefiles
