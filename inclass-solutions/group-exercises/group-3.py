@@ -17,36 +17,21 @@ def calculate_sd_groundhog(dataframe, shadow_column, shadow_condition, month_col
 
 ## calculate means and standard deviations for each shadow type
 
-Mean_No_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
-                                             "No Shadow","February Average Temperature")
-March_Mean_No_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                 "No Shadow","March Average Temperature")
-
-sd_No_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                             "Partial Shadow","February Average Temperature")
-March_sd_No_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                 "Partial Shadow","March Average Temperature")
-
-Mean_Partial_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
-                                             "Partial Shadow","February Average Temperature")
-March_Mean_Partial_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                 "Partial Shadow","March Average Temperature")
-
-sd_Partial_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                             "Partial Shadow","February Average Temperature")
-March_sd_Partial_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                 "Partial Shadow","March Average Temperature")
-
-Mean_Full_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
-                                             "Full Shadow","February Average Temperature")
-March_Mean_Full_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                 "Full Shadow","March Average Temperature")
-
-sd_Full_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                             "Full Shadow","February Average Temperature")
-March_sd_Full_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                 "Full Shadow","March Average Temperature")
-
+means=[]
+stds=[]
+months=[]
+shadow=[]
+for shadow_curr in ["Full","Partial","No"]:
+    for month_curr in ["February","March"]:
+        curr_mean=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
+                                           shadow_curr+" Shadow",month_curr+" Average Temperature")
+        curr_std=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
+                                        shadow_curr+" Shadow",month_curr+" Average Temperature")
+        means.append(curr_mean)
+        stds.append(curr_std)
+        months.append(month_curr)
+        shadow.append(shadow_curr)
+        
 
 ## calculate the change between February and March temperatures
 
@@ -60,15 +45,27 @@ Difference_No_Shadow=No_Shadow["March Average Temperature"]-No_Shadow["February 
 
 ## DO NOT READ THIS CODE - SAVE & PLOT RESULTS ##
 
+shadow_predictions=pd.DataFrame({"Shadow":shadow,
+                                 "Month":months,
+                                 "Mean":means,
+                                 "StDev":stds})
+
+def get_shadow_predict(prediction,month,mean_or_std):
+    return float(shadow_predictions.loc[(shadow_predictions.Month==month)&(shadow_predictions.Shadow==prediction),mean_or_std])
 print("")
 print("################OUTPUT SUMMARY#################")
 print("")
 print("When the Groundhog saw its shadow, mean air temperatures were\n",
-      Mean_Full_Shadow,"+/-",sd_Full_Shadow,
-      "in February and\n",March_Mean_Full_Shadow,"+/-",March_sd_Full_Shadow,"in March.")
+      get_shadow_predict(prediction="Full",month="February",mean_or_std="Mean"),
+      "+/-",get_shadow_predict(prediction="Full",month="February",mean_or_std="StDev"),
+      "in February and\n",get_shadow_predict(prediction="Full",month="March",mean_or_std="Mean"),"+/-",
+      get_shadow_predict(prediction="Full",month="March",mean_or_std="StDev"),"in March.")
 print("")
-print("When the Groundhog did not see its shadow, mean air temperatures were\n",Mean_No_Shadow,"+/-",sd_No_Shadow,
-      "in February and\n",March_Mean_No_Shadow,"+/-",March_sd_No_Shadow,"in March.")
+print("When the Groundhog did not see its shadow, mean air temperatures were\n",
+      get_shadow_predict(prediction="No",month="February",mean_or_std="Mean"),
+      "+/-",get_shadow_predict(prediction="No",month="February",mean_or_std="StDev"),
+      "in February and\n",get_shadow_predict(prediction="No",month="March",mean_or_std="Mean"),
+      "+/-",get_shadow_predict(prediction="No",month="March",mean_or_std="StDev"),"in March.")
 print("")
 print("###############################################")
 print("")
@@ -77,17 +74,8 @@ if not os.path.exists("../results"):
     os.mkdir("../results")
 
 ## sees shadow = predict 6 more weeks of winter
-shadow_predictions=pd.DataFrame({"Shadow":["Partial","Full","No"],
-              "February":[Mean_Partial_Shadow,Mean_Full_Shadow,Mean_No_Shadow],
-              "March":[March_Mean_Partial_Shadow,March_Mean_Full_Shadow,March_Mean_No_Shadow],
-              "FebruaryStd":[sd_Partial_Shadow,sd_Full_Shadow,sd_No_Shadow],
-              "MarchStd":[March_sd_Partial_Shadow,March_sd_Full_Shadow,March_sd_No_Shadow]})
 
-melted=shadow_predictions.melt(id_vars=["Shadow"])
-melted["Month"] = [curr.split("Std")[0] for curr in melted.variable]
-melted["Calc"] = ["StDev" if "Std" in curr else "Mean" for curr in melted.variable]
-
-barplot_df=melted.pivot(index=["Shadow","Month"],values="value",columns=["Calc"]).reset_index()
+barplot_df=shadow_predictions
 barplot_df["UpperError"] = [curr+stdev for curr,stdev in zip(barplot_df.Mean,barplot_df.StDev)]
 barplot_df["LowerError"] = [curr-stdev for curr,stdev in zip(barplot_df.Mean,barplot_df.StDev)]
 

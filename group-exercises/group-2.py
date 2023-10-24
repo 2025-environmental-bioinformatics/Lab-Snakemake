@@ -22,13 +22,13 @@ Mean_No_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
                                         "February Average Temperature")
 March_Mean_No_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
                                               "No Shadow",
-                                              "March Average Temperature")
+                                              "February Average Temperature")
 
 sd_No_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                    "Partial Shadow",
+                                    "No Shadow",
                                     "February Average Temperature")
 March_sd_No_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                          "Partial Shadow",
+                                          "No Shadow",
                                           "March Average Temperature")
 
 Mean_Partial_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
@@ -49,14 +49,14 @@ Mean_Full_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
                                           "Full Shadow",
                                           "February Average Temperature")
 March_Mean_Full_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                "Full Shadow",
+                                                "No Shadow",
                                                 "March Average Temperature")
 
-sd_Full_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                      "Full Shadow",
-                                      "February Average Temperature")
+sd_Full_Shadow=calculate_sd_groundhog(groundhog_data,"Punsutawney Phil",
+                                      "Partial Shadow",
+                                      "March Average Temperature")
 March_sd_Full_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                            "Full Shadow",
+                                            "No Shadow",
                                             "March Average Temperature")
 
 

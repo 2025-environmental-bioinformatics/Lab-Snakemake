@@ -18,34 +18,34 @@ def calculate_sd_groundhog(dataframe, shadow_column, shadow_condition, month_col
 ## calculate means and standard deviations for each shadow type
 
 Mean_No_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
-                                             "No Shadow","February Average Temperature")
+                                        "No Shadow","February Average Temperature")
 March_Mean_No_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                 "No Shadow","March Average Temperature")
+                                              "No Shadow","March Average Temperature")
 
 sd_No_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                             "Partial Shadow","February Average Temperature")
+                                    "Partial Shadow","February Average Temperature")
 March_sd_No_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                 "Partial Shadow","March Average Temperature")
+                                          "Partial Shadow","March Average Temperature")
 
 Mean_Partial_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
                                              "Partial Shadow","February Average Temperature")
 March_Mean_Partial_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                 "Partial Shadow","March Average Temperature")
+                                                   "Partial Shadow","March Average Temperature")
 
 sd_Partial_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                             "Partial Shadow","February Average Temperature")
+                                         "Partial Shadow","February Average Temperature")
 March_sd_Partial_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                 "Partial Shadow","March Average Temperature")
+                                               "Partial Shadow","March Average Temperature")
 
 Mean_Full_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
-                                             "Full Shadow","February Average Temperature")
+                                          "Full Shadow","February Average Temperature")
 March_Mean_Full_Shadow=calculate_mean_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                 "Full Shadow","March Average Temperature")
+                                                "Full Shadow","March Average Temperature")
 
 sd_Full_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                             "Full Shadow","February Average Temperature")
+                                      "Full Shadow","February Average Temperature")
 March_sd_Full_Shadow=calculate_sd_groundhog(groundhog_data,"Punxsutawney Phil",
-                                                 "Full Shadow","March Average Temperature")
+                                            "Full Shadow","March Average Temperature")
 
 
 ## calculate the change between February and March temperatures

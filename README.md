@@ -22,11 +22,11 @@ We will assemble into groups where each group examines a separate coding approac
 
 Aggregate and regional mean temperature data for the months of February and March are also included, which serve to determine whether the Groundhog was right in its 2 February prediction for the next 6 weeks. 
 
-### What is our objective for calculation? 
+### What is the objective of this code?
 
 We want to calculate the mean of air temperatures in the event that the groundhog sees their Full Shadow vs Partial Shadow vs No Shadow. We also want to calculate the change in temperature - does the Groundhog correctly predict how fast temperatures will change, if not by how much?
 
-### What is our objective as teams?
+### What are we trying to do in teams?
 
 You have ten minutes to do this - this is a hard cutoff! Use the time wisely and try to get to executing the scripts right away.
 
@@ -34,9 +34,9 @@ You have ten minutes to do this - this is a hard cutoff! Use the time wisely and
 2. Read through the Python code used for this calculation and see if you can spot any errors right away.
 3. Check for syntax errors by executing `python group-n.py`; address these first
 4. After you get the code working properly, navigate to `inclass-solutions/group-exercises` and execute `python group-n.py` with your group number.
-5. Compare `inclass-solutions/results` to `results` by running `scp 
-2. Brainstorm ways that you might improve it. 
-
+5. Compare `inclass-solutions/results` to `results` by checking the printed output block when you execute each script (hint: use a `tmux` session rather than trying to scroll).
+6. When you're satisfied, `scp` the images from `results` to your local computer - as long as your code matched the solutions, this is the real answer for whether empirical data supports the validity of the Groundhog Method. (Hint: use `scp <username>@poseidon-l1.whoi.edu:/vortexfs1/omics/env-bio/users/<username>/Lab-Python/results <local location desired>`).
+7. Brainstorm ways that you might improve this code. Jot down some notes as a group if you get this far! 
 
 ## What are makefiles
 
