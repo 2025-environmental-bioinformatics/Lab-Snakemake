@@ -38,7 +38,7 @@ You have fifteen minutes to do this - this is a hard cutoff! Use the time wisely
 
 ## What are makefiles
 
-You may have run into Makefiles before while installing a bioinformatic (before the advent of conda). The `make` utility requires a file generally called `Makefile` (or `makefile`), which defines set of tasks to be executed or the installation instructions. Let's take a look at an example. Go to: http://hmmer.org/ and click `Download source`. Once it is has downloaded unzip the file and take a look at the Install instructions. [conda install can be found [here](https://anaconda.org/bioconda/hmmer)]. If you take a look at the install instructions you see something like this:
+You may have run into Makefiles before while installing a bioinformatic tool (before the advent of conda). The `make` utility requires a file generally called `Makefile` (or `makefile`), which defines set of tasks to be executed or the installation instructions. Let's take a look at an example. Go to: http://hmmer.org/ and click `Download source`. Once it is has downloaded unzip the file and take a look at the Install instructions. [conda install can be found [here](https://anaconda.org/bioconda/hmmer)]. If you take a look at the install instructions you see something like this:
 
 ```
 Starting from a source distribution, hmmer-3.3.tar.gz:
@@ -171,9 +171,9 @@ Why?
 
 When it is asked to create a target, Snakemake checks the ‘last modification time’ of both the target and its dependencies. If any dependency has been updated since the target, then the actions are re-run to update the target. Using this approach, Snakemake knows to only rebuild the files that, either directly or indirectly, depend on the file that changed. This is called an *incremental build*.
 
-## Adding more rules
+## Making our rules more inclusive and flexible
 
-Alright, now let's add another rule to our snakemake. But, before we do that, let's grab some more books. 
+Let's grab some more books to write a new rule for a new book. 
 
 We will symbolically link some data that we are going to be using today. `ln` is a useful command for linking data to your working directory that you don't want to copy (imagine if you were working with really large files). `ln` works similarly to copy or mv -- you have to specify a file (or set of files) and a target location. Navigate into `novels/` and run:
 
@@ -209,7 +209,7 @@ Nothing happens because Snakemake attempts to build the first target it finds in
 snakemake five.dat
 ```
 
-Give us:
+Gives us:
 
 ```
 
@@ -236,7 +236,7 @@ This rule has now inputs or outputs! It won't automatically be run (as you might
 
 ## Rule all
 
-As mentioned above, snakemake generally looks for the first targets within a snakefile and automatically makes sure that those targets are built. All other targets go by the wayside. 
+As mentioned above, snakemake generally looks for the first targets within a Snakefile and automatically makes sure that those targets are built. All other targets go by the wayside. 
 
 As such, it is common practice to include a `rule all:` at the top of your `Snakefile` that lists all the files that should be created with your workflow. 
 
