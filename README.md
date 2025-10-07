@@ -11,7 +11,7 @@ mamba create -y -n snakemake-class -c bioconda -c conda-forge -c anaconda snakem
 and clone the GitHub repo:
 
 ```
-git clone git@github.com:2023-environmental-bioinformatics/Lab-Snakemake.git
+git clone git@github.com:2025-environmental-bioinformatics/Lab-Snakemake.git
 ```
 
 ## What are makefiles
