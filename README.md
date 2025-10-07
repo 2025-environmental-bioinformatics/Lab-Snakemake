@@ -14,28 +14,6 @@ and clone the GitHub repo:
 git clone git@github.com:2023-environmental-bioinformatics/Lab-Snakemake.git
 ```
 
-![Groundhog Day](./images/groundhog.gif)
-
-We will assemble into groups where each group examines a separate coding approach, stored in `group-exercises`. These data are from [kaggle](https://www.kaggle.com/datasets/groundhogclub/groundhog-day/), and they display the decision of the Groundhog to either celebrate the beginning of Spring or declare 6 more weeks of winter. 
-
-Aggregate and regional mean temperature data for the months of February and March are also included, which serve to determine whether the Groundhog was right in its 2 February prediction for the next 6 weeks. 
-
-### What is the objective of this code?
-
-We want to calculate the mean of air temperatures in the event that the groundhog sees their Full Shadow vs Partial Shadow vs No Shadow. We also want to calculate the change in temperature - does the Groundhog correctly predict how fast temperatures will change, if not by how much?
-
-### What are we trying to do in teams?
-
-You have fifteen minutes to do this - this is a hard cutoff! Use the time wisely and try to get to executing the scripts right away.
-
-1. Navigate to `group-exercises` and find the `group-n.py` file that corresponds to the `n` that your group was assigned.
-2. Read through the Python code used for this calculation and see if you can spot any errors right away.
-3. Check for syntax errors by executing `python group-n.py`; address these first
-4. After you get the code working properly, navigate to `inclass-solutions/group-exercises` and execute `python group-n.py` with your group number.
-5. Compare `inclass-solutions/results` to `results` by checking the printed output block when you execute each script (hint: use a `tmux` session rather than trying to scroll).
-6. When you're satisfied, `scp` the images from `results` to your local computer - as long as your code matched the solutions, this is the real answer for whether empirical data supports the validity of the Groundhog Method. (Hint: use `scp <username>@poseidon-l1.whoi.edu:/vortexfs1/omics/env-bio/users/<username>/Lab-Python/results <local location desired>`; this is executed from your _local computer_).
-7. Brainstorm ways that you might improve this code. Jot down some notes as a group if you get this far! 
-
 ## What are makefiles
 
 You may have run into Makefiles before while installing a bioinformatic tool (before the advent of conda). The `make` utility requires a file generally called `Makefile` (or `makefile`), which defines set of tasks to be executed or the installation instructions. Let's take a look at an example. Go to: http://hmmer.org/ and click `Download source`. Once it is has downloaded unzip the file and take a look at the Install instructions. [conda install can be found [here](https://anaconda.org/bioconda/hmmer)]. If you take a look at the install instructions you see something like this:
@@ -186,6 +164,7 @@ This will symbolically link the Sherlock Holmes stories we worked with for the f
 > Type `ls -l`. What do you see? How are these different from siddartha.txt? 
 
 Now, let's add another rule. Note, rules cannot have the same name so we can call this one `count_words_five`. Copy this into your `Snakefile`.  
+
 ```python
 rule count_words_five:
     input: 'novels/five.txt'
