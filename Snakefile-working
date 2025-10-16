@@ -1,0 +1,37 @@
+configfile: "config.yaml"
+
+import os
+
+all_values = expand("{novel}.dat", novel=config["input_files"])
+
+book_names, = glob_wildcards(os.path.join(config["input_dir"],"{novel}.txt"))
+
+print(book_names)
+
+rule all:
+	input:
+		expand("{novel}.dat", novel=book_names)
+
+rule count_words:
+	input: 
+		book_file= os.path.join(config["input_dir"],"{novel}.txt")
+	output: 
+		wordcount_file="{novel}.dat"
+	shell:
+		"""
+		python wordcount.py {input.book_file} {output.wordcount_file}
+		"""
+#rule count_words_five: 
+#    input: "novels/five.txt"
+#    output: "five.dat"
+#    shell:
+#        """
+#        python wordcount.py novels/five.txt five.dat
+#        """
+
+rule clean:
+	output: "clean.txt"
+	shell:
+		"""
+		rm *.dat ; touch clean.txt
+		"""
